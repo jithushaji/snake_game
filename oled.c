@@ -16,7 +16,7 @@ void oled_init()
     oled_cmd(SET_COM_CONF);     // sequential COM or alternate COM, enable or disable COM left/right remap
     oled_cmd(0x12);             // set to alternate COM and disable remap
     oled_cmd(SET_CONTRST);      // contrast setting
-    oled_cmd(0x00);             // range from 0x00 to 0xFF
+    oled_cmd(0xCC);             // range from 0x00 to 0xFF
     oled_cmd(DISP_ON_RSUM); 
     oled_cmd(NORM_DISP);        // normal display mode
     oled_cmd(SET_CLK_DIV);      // set oscillator frequency & display clock division
@@ -28,7 +28,7 @@ void oled_init()
     oled_clear();
 }
 
-void oled_cmd(char data)
+void oled_cmd(unsigned char data)
 {
     i2c_start();
     i2c_write(OLED_ADDR);
@@ -37,7 +37,7 @@ void oled_cmd(char data)
     i2c_stop();
 }
 
-void oled_data(char data)
+void oled_data(unsigned char data)
 {
     i2c_start();
     i2c_write(OLED_ADDR);
@@ -100,14 +100,14 @@ void display_on()
     oled_cmd(OLED_ON);
 }
 
-void set_cursor(char row, char col)
+void set_cursor(unsigned char row, unsigned char col)
 {
     oled_cmd(0xB0|row);                 // set Page
 	oled_cmd(0x00+(col&0x0F));          // set low col address
 	oled_cmd(0x10+((col>>4)&0x0F));     // set high col address  
 }
 
-void set_pixel(char x, char y)
+void set_pixel(unsigned char x, unsigned char y)
 {
     int page,pos;
     static char buff[8][128] = {0};

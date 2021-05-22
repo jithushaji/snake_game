@@ -40,16 +40,12 @@ extern "C" {
 #define SET_SEG_REMAP        0xA0
 #define COM_SCAN_NOR        0xC0    
     
-    
-    
-
- 
-    
+       
 void oled_init();    
-void oled_cmd(char);
-void oled_data(char);
-void set_cursor(char,char);
-void set_pixel(char,char);
+void oled_cmd(unsigned char);
+void oled_data(unsigned char);
+void set_cursor(unsigned char, unsigned char);
+void set_pixel(unsigned char,unsigned char);
 void oled_clear();
 void set_colum();
 void set_page();
