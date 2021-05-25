@@ -1,7 +1,7 @@
 #include "i2c.h"
 #include "oled.h"
 
-
+static char buff[8][129] = {0};
 void oled_init()
 {
     i2c_init();
@@ -56,6 +56,7 @@ void oled_clear()
 			for(i=0;i<130;i++)           
 			{
 				oled_data(0x00);         //clear all COL
+                buff[k][i] = 0x00;
 			}
 		}
 	}
@@ -71,9 +72,11 @@ void oled_all_on()
 			for(i=0;i<130;i++)           
 			{
 				oled_data(0xFF);         //clear all COL
+                buff[k][i] = 0xFF;
 			}
 		}
 	}
+ 
 }
 
 void set_colum()
@@ -110,18 +113,48 @@ void set_cursor(unsigned char row, unsigned char col)
 void set_pixel(unsigned char x, unsigned char y)
 {
     int page,pos;
-    static char buff[8][128] = {0};
     page = y/8;
     pos = y%8;
     x = x+2;
-    buff[page][x]|=(0x01<<pos);
-    oled_cmd(0xB0|page);              // set Page
+    buff[page][x]|=(0x01<<pos);         // update byte in buffer
+    oled_cmd(0xB0|page);                // set Page
     oled_cmd(0x00|((x)&0x0F));          // set low col address
 	oled_cmd(0x10|(((x)>>4)&0x0F));     // set high col address
     
-    oled_data(buff[page][x]);                // set bit
+    oled_data(buff[page][x]);           // write buffer
     
 }
 
+void clear_pixel(unsigned char x, unsigned char y)
+{
+    int page,pos;
+    page = y/8;
+    pos = y%8;
+    x = x+2;
+    buff[page][x] &= ~(0x01<<pos);    // update byte in buffer
+    oled_cmd(0xB0|page);                // set Page
+    oled_cmd(0x00|((x)&0x0F));          // set low col address
+	oled_cmd(0x10|(((x)>>4)&0x0F));     // set high col address
+    
+    oled_data(buff[page][x]);           // write buffer
+    
+}
+
+void draw_box()
+{
+    int i;
+    
+        for(i=0;i<64;i++)
+    {
+       set_pixel(0,i); 
+       set_pixel(127,i); 
+    }
+
+    for(i=0;i<128;i++)
+    {
+       set_pixel(i,63); 
+       set_pixel(i,0); 
+    }
+}
 
 

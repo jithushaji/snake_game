@@ -1,9 +1,3 @@
-/* 
- * File:   oled,h.h
- * Author: neo
- *
- * Created on May 18, 2021, 12:19 PM
- */
 
 #ifndef OLED_H_H
 #define	OLED_H_H
@@ -46,12 +40,15 @@ void oled_cmd(unsigned char);
 void oled_data(unsigned char);
 void set_cursor(unsigned char, unsigned char);
 void set_pixel(unsigned char,unsigned char);
+void clear_pixel(unsigned char,unsigned char);
 void oled_clear();
 void set_colum();
 void set_page();
 void display_off();
 void display_on();
-void oled_all_on();    
+void oled_all_on();  
+void draw_box();
+
     
 #ifdef	__cplusplus
 }

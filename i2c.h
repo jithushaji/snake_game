@@ -20,6 +20,7 @@ void i2c_stop();
 void i2c_init(); 
 void i2c_write(char);
 
+
 #ifdef	__cplusplus
 }
 #endif

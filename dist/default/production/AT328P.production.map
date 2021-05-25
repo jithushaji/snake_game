@@ -3,7 +3,7 @@ Archive member included to satisfy reference by file (symbol)
 /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_exit.o)
                               /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o (exit)
 /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_copy_data.o)
-                              build/default/production/oled.o (__do_clear_bss)
+                              build/default/production/button.o (__do_copy_data)
 
 Discarded input sections
 
@@ -16,7 +16,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 build/default/production/oled.o
  .bss           0x0000000000000000        0x0 build/default/production/oled.o
  .text.oled_all_on
-                0x0000000000000000       0x44 build/default/production/oled.o
+                0x0000000000000000       0x6e build/default/production/oled.o
  .text.set_colum
                 0x0000000000000000       0x22 build/default/production/oled.o
  .text.set_page
@@ -28,6 +28,9 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/i2c.o
  .data          0x0000000000000000        0x0 build/default/production/i2c.o
  .bss           0x0000000000000000        0x0 build/default/production/i2c.o
+ .text          0x0000000000000000        0x0 build/default/production/button.o
+ .data          0x0000000000000000        0x0 build/default/production/button.o
+ .bss           0x0000000000000000        0x0 build/default/production/button.o
  .text          0x0000000000000000        0x0 /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_exit.o)
  .data          0x0000000000000000        0x0 /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_exit.o)
  .bss           0x0000000000000000        0x0 /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_exit.o)
@@ -83,6 +86,7 @@ LOAD /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/
 LOAD build/default/production/main.o
 LOAD build/default/production/oled.o
 LOAD build/default/production/i2c.o
+LOAD build/default/production/button.o
 START GROUP
 LOAD /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const/libm.a
 END GROUP
@@ -192,7 +196,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000       0xc2
+.text           0x0000000000000000       0xce
  *(.vectors)
  .vectors       0x0000000000000000       0x68 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
                 0x0000000000000000                __vectors
@@ -200,44 +204,44 @@ END GROUP
  *(.vectors)
  *(.progmem.gcc*)
  *(.dinit)
- .dinit         0x0000000000000068        0x5 data_init
-                0x000000000000006e                . = ALIGN (0x2)
- *fill*         0x000000000000006d        0x1 
-                0x000000000000006e                __trampolines_start = .
+ .dinit         0x0000000000000068       0x11 data_init
+                0x000000000000007a                . = ALIGN (0x2)
+ *fill*         0x0000000000000079        0x1 
+                0x000000000000007a                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x000000000000006e        0x0 linker stubs
+ .trampolines   0x000000000000007a        0x0 linker stubs
  *(.trampolines*)
-                0x000000000000006e                __trampolines_end = .
+                0x000000000000007a                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
-                0x000000000000006e                . = ALIGN (0x2)
+                0x000000000000007a                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x000000000000006e                __ctors_start = .
+                0x000000000000007a                __ctors_start = .
  *(.ctors)
-                0x000000000000006e                __ctors_end = .
-                0x000000000000006e                __dtors_start = .
+                0x000000000000007a                __ctors_end = .
+                0x000000000000007a                __dtors_start = .
  *(.dtors)
-                0x000000000000006e                __dtors_end = .
+                0x000000000000007a                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x000000000000006e        0x0 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
-                0x000000000000006e                __init
+ .init0         0x000000000000007a        0x0 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+                0x000000000000007a                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000000000000006e        0xc /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+ .init2         0x000000000000007a        0xc /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000000000000007a       0x3c /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_copy_data.o)
-                0x000000000000007a                __do_copy_data
-                0x00000000000000a8                __do_clear_bss
+ .init4         0x0000000000000086       0x3c /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_copy_data.o)
+                0x0000000000000086                __do_copy_data
+                0x00000000000000b4                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -248,13 +252,13 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000000000000b6        0x8 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+ .init9         0x00000000000000c2        0x8 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
  *(.init9)
-                0x00000000000000be                . = ALIGN (0x2)
+                0x00000000000000ca                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000000000000be        0x0 /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_exit.o)
-                0x00000000000000be                exit
-                0x00000000000000be                _exit
+ .fini9         0x00000000000000ca        0x0 /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_exit.o)
+                0x00000000000000ca                exit
+                0x00000000000000ca                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -273,11 +277,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000000000000be        0x4 /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_exit.o)
+ .fini0         0x00000000000000ca        0x4 /opt/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const/libgcc.a(_exit.o)
  *(.fini0)
-                0x00000000000000c2                _etext = .
+                0x00000000000000ce                _etext = .
 
-.data           0x0000000000800100        0x0 load address 0x00000000000000c2
+.data           0x0000000000800100        0x0 load address 0x00000000000000ce
                 [!provide]                        PROVIDE (__data_start, .)
  *(.gnu.linkonce.d*)
  *(.gnu.linkonce.r*)
@@ -289,8 +293,8 @@ END GROUP
                 [!provide]                        PROVIDE (__bss_start, .)
  *(COMMON)
                 [!provide]                        PROVIDE (__bss_end, .)
-                0x00000000000000c2                __data_load_start = LOADADDR (.data)
-                0x00000000000000c2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000000000000ce                __data_load_start = LOADADDR (.data)
+                0x00000000000000ce                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0000000000800100        0x0
                 [!provide]                        PROVIDE (__noinit_start, .)
@@ -341,6 +345,7 @@ END GROUP
                                          0x30 (size before relaxing)
  .comment       0x000000000000002f       0x30 build/default/production/oled.o
  .comment       0x000000000000002f       0x30 build/default/production/i2c.o
+ .comment       0x000000000000002f       0x30 build/default/production/button.o
 
 .stack.descriptors.hdr
                 0x0000000000000000        0xe
@@ -362,44 +367,50 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000       0xd0
+.debug_aranges  0x0000000000000000      0x100
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x28 build/default/production/main.o
+                0x0000000000000000       0x20 build/default/production/main.o
  .debug_aranges
-                0x0000000000000028       0x70 build/default/production/oled.o
+                0x0000000000000020       0x80 build/default/production/oled.o
  .debug_aranges
-                0x0000000000000098       0x38 build/default/production/i2c.o
+                0x00000000000000a0       0x38 build/default/production/i2c.o
+ .debug_aranges
+                0x00000000000000d8       0x28 build/default/production/button.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000      0xdd7
+.debug_info     0x0000000000000000     0x1182
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x5f4 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_info    0x00000000000005f4      0x1ba build/default/production/main.o
- .debug_info    0x00000000000007ae      0x3a3 build/default/production/oled.o
- .debug_info    0x0000000000000b51      0x286 build/default/production/i2c.o
+ .debug_info    0x00000000000005f4      0x220 build/default/production/main.o
+ .debug_info    0x0000000000000814      0x422 build/default/production/oled.o
+ .debug_info    0x0000000000000c36      0x286 build/default/production/i2c.o
+ .debug_info    0x0000000000000ebc      0x2c6 build/default/production/button.o
 
-.debug_abbrev   0x0000000000000000      0x71c
+.debug_abbrev   0x0000000000000000      0x782
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x5a2 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_abbrev  0x00000000000005a2       0x5e build/default/production/main.o
- .debug_abbrev  0x0000000000000600       0x99 build/default/production/oled.o
- .debug_abbrev  0x0000000000000699       0x83 build/default/production/i2c.o
+ .debug_abbrev  0x00000000000005a2       0x46 build/default/production/main.o
+ .debug_abbrev  0x00000000000005e8       0x99 build/default/production/oled.o
+ .debug_abbrev  0x0000000000000681       0x83 build/default/production/i2c.o
+ .debug_abbrev  0x0000000000000704       0x7e build/default/production/button.o
 
-.debug_line     0x0000000000000000      0x612
+.debug_line     0x0000000000000000      0x7d4
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x137 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_line    0x0000000000000137      0x102 build/default/production/main.o
- .debug_line    0x0000000000000239      0x2d7 build/default/production/oled.o
- .debug_line    0x0000000000000510      0x102 build/default/production/i2c.o
+ .debug_line    0x0000000000000137       0xa1 build/default/production/main.o
+ .debug_line    0x00000000000001d8      0x3a9 build/default/production/oled.o
+ .debug_line    0x0000000000000581      0x102 build/default/production/i2c.o
+ .debug_line    0x0000000000000683      0x151 build/default/production/button.o
 
-.debug_frame    0x0000000000000000      0x25c
+.debug_frame    0x0000000000000000      0x318
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x54 build/default/production/main.o
- .debug_frame   0x0000000000000054      0x174 build/default/production/oled.o
- .debug_frame   0x00000000000001c8       0x94 build/default/production/i2c.o
+ .debug_frame   0x0000000000000000       0x34 build/default/production/main.o
+ .debug_frame   0x0000000000000034      0x1b4 build/default/production/oled.o
+ .debug_frame   0x00000000000001e8       0x94 build/default/production/i2c.o
+ .debug_frame   0x000000000000027c       0x9c build/default/production/button.o
 
 .debug_str      0x0000000000000000      0x208
  *(.debug_str)
@@ -407,6 +418,7 @@ END GROUP
  .debug_str     0x0000000000000208        0x0 build/default/production/main.o
  .debug_str     0x0000000000000208        0x0 build/default/production/oled.o
  .debug_str     0x0000000000000208        0x0 build/default/production/i2c.o
+ .debug_str     0x0000000000000208        0x0 build/default/production/button.o
 
 .debug_loc
  *(.debug_loc)
@@ -429,11 +441,12 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000       0xa0
+.debug_ranges   0x0000000000000000       0xc0
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x18 build/default/production/main.o
- .debug_ranges  0x0000000000000018       0x60 build/default/production/oled.o
- .debug_ranges  0x0000000000000078       0x28 build/default/production/i2c.o
+ .debug_ranges  0x0000000000000000       0x10 build/default/production/main.o
+ .debug_ranges  0x0000000000000010       0x70 build/default/production/oled.o
+ .debug_ranges  0x0000000000000080       0x28 build/default/production/i2c.o
+ .debug_ranges  0x00000000000000a8       0x18 build/default/production/button.o
 
 .debug_macro
  *(.debug_macro)
@@ -446,101 +459,131 @@ LOAD data_init
  .note.gnu.avr.deviceinfo
                 0x0000000000000000       0x40 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
 
-.bss.buff.1634  0x0000000000800100      0x400
- .bss.buff.1634
-                0x0000000000800100      0x400 build/default/production/oled.o
+.bss.buff       0x0000000000800100      0x408
+ .bss.buff      0x0000000000800100      0x408 build/default/production/oled.o
+
+.bss.count.2002
+                0x0000000000800508        0x2
+ .bss.count.2002
+                0x0000000000800508        0x2 build/default/production/button.o
+
+.bss.end.2004   0x000000000080050e        0x2
+ .bss.end.2004  0x000000000080050e        0x2 build/default/production/button.o
+
+.text.__vector_5
+                0x00000000000000ce      0x18a
+ .text.__vector_5
+                0x00000000000000ce      0x18a build/default/production/button.o
+                0x00000000000000ce                __vector_5
+
+.text.set_button
+                0x0000000000000258      0x11a
+ .text.set_button
+                0x0000000000000258      0x11a build/default/production/button.o
+                0x0000000000000258                set_button
+
+.text.clear_pixel
+                0x0000000000000372       0xf4
+ .text.clear_pixel
+                0x0000000000000372       0xf4 build/default/production/oled.o
+                0x0000000000000372                clear_pixel
 
 .text.set_pixel
-                0x00000000000000c2       0xe0
+                0x0000000000000466       0xf2
  .text.set_pixel
-                0x00000000000000c2       0xe0 build/default/production/oled.o
-                0x00000000000000c2                set_pixel
+                0x0000000000000466       0xf2 build/default/production/oled.o
+                0x0000000000000466                set_pixel
 
 .text.oled_init
-                0x00000000000001a2       0x8a
+                0x0000000000000558       0x8a
  .text.oled_init
-                0x00000000000001a2       0x8a build/default/production/oled.o
-                0x00000000000001a2                oled_init
+                0x0000000000000558       0x8a build/default/production/oled.o
+                0x0000000000000558                oled_init
 
-.text.main      0x000000000000022c       0x72
- .text.main     0x000000000000022c       0x72 build/default/production/main.o
-                0x000000000000022c                main
-
-.text.draw_box  0x000000000000029e       0x6e
+.text.draw_box  0x00000000000005e2       0x6e
  .text.draw_box
-                0x000000000000029e       0x6e build/default/production/main.o
-                0x000000000000029e                draw_box
+                0x00000000000005e2       0x6e build/default/production/oled.o
+                0x00000000000005e2                draw_box
 
 .text.oled_clear
-                0x000000000000030c       0x44
+                0x0000000000000650       0x6c
  .text.oled_clear
-                0x000000000000030c       0x44 build/default/production/oled.o
-                0x000000000000030c                oled_clear
+                0x0000000000000650       0x6c build/default/production/oled.o
+                0x0000000000000650                oled_clear
+
+.text.main      0x00000000000006bc       0x4c
+ .text.main     0x00000000000006bc       0x4c build/default/production/main.o
+                0x00000000000006bc                main
 
 .text.i2c_write
-                0x0000000000000350       0x38
+                0x0000000000000708       0x38
  .text.i2c_write
-                0x0000000000000350       0x38 build/default/production/i2c.o
-                0x0000000000000350                i2c_write
+                0x0000000000000708       0x38 build/default/production/i2c.o
+                0x0000000000000708                i2c_write
 
 .text.set_cursor
-                0x0000000000000388       0x36
+                0x0000000000000740       0x36
  .text.set_cursor
-                0x0000000000000388       0x36 build/default/production/oled.o
-                0x0000000000000388                set_cursor
+                0x0000000000000740       0x36 build/default/production/oled.o
+                0x0000000000000740                set_cursor
 
-.text.i2c_init  0x00000000000003be       0x34
+.text.i2c_init  0x0000000000000776       0x34
  .text.i2c_init
-                0x00000000000003be       0x34 build/default/production/i2c.o
-                0x00000000000003be                i2c_init
+                0x0000000000000776       0x34 build/default/production/i2c.o
+                0x0000000000000776                i2c_init
 
-.text.oled_cmd  0x00000000000003f2       0x30
+.text.oled_cmd  0x00000000000007aa       0x30
  .text.oled_cmd
-                0x00000000000003f2       0x30 build/default/production/oled.o
-                0x00000000000003f2                oled_cmd
+                0x00000000000007aa       0x30 build/default/production/oled.o
+                0x00000000000007aa                oled_cmd
 
 .text.oled_data
-                0x0000000000000422       0x30
+                0x00000000000007da       0x30
  .text.oled_data
-                0x0000000000000422       0x30 build/default/production/oled.o
-                0x0000000000000422                oled_data
+                0x00000000000007da       0x30 build/default/production/oled.o
+                0x00000000000007da                oled_data
 
 .text.i2c_start
-                0x0000000000000452       0x2c
+                0x000000000000080a       0x2c
  .text.i2c_start
-                0x0000000000000452       0x2c build/default/production/i2c.o
-                0x0000000000000452                i2c_start
+                0x000000000000080a       0x2c build/default/production/i2c.o
+                0x000000000000080a                i2c_start
 
-.text.i2c_stop  0x000000000000047e       0x1a
+.text.i2c_stop  0x0000000000000836       0x1a
  .text.i2c_stop
-                0x000000000000047e       0x1a build/default/production/i2c.o
-                0x000000000000047e                i2c_stop
+                0x0000000000000836       0x1a build/default/production/i2c.o
+                0x0000000000000836                i2c_stop
 
-.text           0x0000000000000498        0x4
- .text          0x0000000000000498        0x4 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
-                0x0000000000000498                __vector_22
-                0x0000000000000498                __vector_1
-                0x0000000000000498                __vector_24
-                0x0000000000000498                __vector_12
-                0x0000000000000498                __bad_interrupt
-                0x0000000000000498                __vector_6
-                0x0000000000000498                __vector_3
-                0x0000000000000498                __vector_23
-                0x0000000000000498                __vector_25
-                0x0000000000000498                __vector_11
-                0x0000000000000498                __vector_13
-                0x0000000000000498                __vector_17
-                0x0000000000000498                __vector_19
-                0x0000000000000498                __vector_7
-                0x0000000000000498                __vector_5
-                0x0000000000000498                __vector_4
-                0x0000000000000498                __vector_9
-                0x0000000000000498                __vector_2
-                0x0000000000000498                __vector_21
-                0x0000000000000498                __vector_15
-                0x0000000000000498                __vector_8
-                0x0000000000000498                __vector_14
-                0x0000000000000498                __vector_10
-                0x0000000000000498                __vector_16
-                0x0000000000000498                __vector_18
-                0x0000000000000498                __vector_20
+.text           0x0000000000000850        0x4
+ .text          0x0000000000000850        0x4 /opt/microchip/mplabx/v5.40/packs/Microchip/ATmega_DFP/2.2.108/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+                0x0000000000000850                __vector_22
+                0x0000000000000850                __vector_1
+                0x0000000000000850                __vector_24
+                0x0000000000000850                __vector_12
+                0x0000000000000850                __bad_interrupt
+                0x0000000000000850                __vector_6
+                0x0000000000000850                __vector_3
+                0x0000000000000850                __vector_23
+                0x0000000000000850                __vector_25
+                0x0000000000000850                __vector_11
+                0x0000000000000850                __vector_13
+                0x0000000000000850                __vector_17
+                0x0000000000000850                __vector_19
+                0x0000000000000850                __vector_7
+                0x0000000000000850                __vector_4
+                0x0000000000000850                __vector_9
+                0x0000000000000850                __vector_2
+                0x0000000000000850                __vector_21
+                0x0000000000000850                __vector_15
+                0x0000000000000850                __vector_8
+                0x0000000000000850                __vector_14
+                0x0000000000000850                __vector_10
+                0x0000000000000850                __vector_16
+                0x0000000000000850                __vector_18
+                0x0000000000000850                __vector_20
+
+.data.y.2001    0x000000000080050a        0x2 load address 0x0000000000000854
+ .data.y.2001   0x000000000080050a        0x2 build/default/production/button.o
+
+.data.x.2000    0x000000000080050c        0x2 load address 0x0000000000000856
+ .data.x.2000   0x000000000080050c        0x2 build/default/production/button.o

@@ -1,4 +1,5 @@
-build/default/production/main.o.d build/default/production/main.o: main.c \
+build/default/production/button.o.d build/default/production/button.o: \
+ button.c /opt/microchip/xc8/v2.32/avr/avr/include/avr/interrupt.h \
  /opt/microchip/xc8/v2.32/avr/avr/include/avr/io.h \
  /opt/microchip/xc8/v2.32/avr/avr/include/avr/sfr_defs.h \
  /opt/microchip/xc8/v2.32/avr/avr/include/inttypes.h \
@@ -10,9 +11,12 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
  /opt/microchip/xc8/v2.32/avr/avr/include/avr/version.h \
  /opt/microchip/xc8/v2.32/avr/avr/include/avr/fuse.h \
  /opt/microchip/xc8/v2.32/avr/avr/include/avr/lock.h \
- /opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/xc.h \
- /opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/cci.h oled.h \
- i2c.h button.h
+ /opt/microchip/xc8/v2.32/avr/avr/include/stdio.h \
+ /opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/stdarg.h \
+ /opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/stddef.h \
+ /opt/microchip/xc8/v2.32/avr/avr/include/stdlib.h oled.h
+
+/opt/microchip/xc8/v2.32/avr/avr/include/avr/interrupt.h:
 
 /opt/microchip/xc8/v2.32/avr/avr/include/avr/io.h:
 
@@ -36,12 +40,12 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
 
 /opt/microchip/xc8/v2.32/avr/avr/include/avr/lock.h:
 
-/opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/xc.h:
+/opt/microchip/xc8/v2.32/avr/avr/include/stdio.h:
 
-/opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/cci.h:
+/opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/stdarg.h:
+
+/opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/stddef.h:
+
+/opt/microchip/xc8/v2.32/avr/avr/include/stdlib.h:
 
 oled.h:
-
-i2c.h:
-
-button.h:

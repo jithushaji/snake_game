@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>i2c.h</itemPath>
       <itemPath>oled.h</itemPath>
+      <itemPath>button.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -16,8 +17,8 @@
                    projectFiles="true">
       <itemPath>main.c</itemPath>
       <itemPath>oled.c</itemPath>
-      <itemPath>../../../Downloads/OLED-ssd1306-atmega-master/data.h</itemPath>
       <itemPath>i2c.c</itemPath>
+      <itemPath>button.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

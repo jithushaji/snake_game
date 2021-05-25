@@ -5,6 +5,7 @@
         <group>
             <file>file:/home/neo/Desktop/ARM/AT328P/oled.c</file>
             <file>file:/home/neo/Desktop/ARM/AT328P/main.c</file>
+            <file>file:/home/neo/Desktop/ARM/AT328P/button.c</file>
         </group>
     </open-files>
 </project-private>
