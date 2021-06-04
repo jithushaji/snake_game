@@ -7,6 +7,7 @@
 
 int y_pos = 0;
 int x_pos = 0;
+int tail;
 int delay = 1000;
 static int begin_x = 1, end_x = len;
 static int begin_y = 1, end_y = len;
@@ -35,36 +36,36 @@ void set_button(int x) {
     }
 }
 
-void move_right() {
+void move_init() {
     int i, j;
-    y_pos = end_y;
+    y_pos = begin_y;
 
-    while (begin_x < 127) 
+    while (begin_x < 128) 
     {
 
         if (R == 0)
             return; //returning to main()
 
-        if (((begin_x-1) > 0)&&(end_x < 126)) 
+        if (((begin_x-1) > 0)&&(end_x < 127)) 
         {
 
             for (i = begin_x; i <= end_x; i++) 
             {
-                set_pixel(i, y_pos - (len - 1)); //making snake
-                clear_pixel((begin_x - 1), y_pos - (len - 1)); //clearing trail pixel while adding head pixel 
+                set_pixel(i, y_pos); //making snake
+                clear_pixel((begin_x - 1), y_pos); //clearing trail pixel while adding head pixel 
             }
             _delay_ms(delay);
         }
 
         
-        if (end_x == 126) 
+        if (end_x == 127) 
         {
 
             for (j = 0; j < len; j++) 
             {
-                clear_pixel(end_x - (len - j), y_pos - (len - 1));   
+                clear_pixel(end_x - (len - j), y_pos);   
                 _delay_ms(delay);
-                set_pixel(j + 1, y_pos - (len - 1)); //making snake   
+                set_pixel(j + 1, y_pos); //making snake   
             }
 
             begin_x = 1;
@@ -72,17 +73,16 @@ void move_right() {
         }    
 
         end_x++;
-        begin_x++;
-        
+        begin_x++;        
     }
-
 }
 
 void move_up() {
     int i, j;
     
-    
-    x_pos = end_x;
+    tail = begin_x-1;
+    x_pos = end_x-1;
+
     while (begin_y < 64) 
     {
         
@@ -93,8 +93,17 @@ void move_up() {
         {
             for (i = begin_y; i < end_y; i++) 
             {               
-                set_pixel(x_pos, i);                           
+                set_pixel(x_pos, i); 
+                if((x_pos-tail) >= 0)
+                {
+                    clear_pixel(tail,y_pos);
+                    _delay_ms(delay);
+                    tail++;
+                }
+                else
+                {
                 clear_pixel(x_pos, begin_y - 1);              
+                }
             }
             _delay_ms(delay);
         }                             
@@ -115,8 +124,7 @@ void move_up() {
         }
         
         end_y++;
-        begin_y++;
-        
+        begin_y++;        
     }
 }
 
@@ -124,10 +132,15 @@ ISR(PCINT2_vect)
 {
     R = 0;
     L = 1;
-
+    int i;
+       
     if (k == 0)
     {
         k = 1;
+        for(i=begin_y;i<end_y;i++)
+        {   if(x_pos>0)
+            clear_pixel(x_pos,i);
+        }
         if (x_pos >= 127)
             x_pos = 1;
         x_pos++;

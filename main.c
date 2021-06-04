@@ -36,7 +36,7 @@ int main()
     while(1)
     {
         if ((R == 1)&&(L == 0))
-            move_right();
+            move_init();
 
         if ((R == 0)&&(L == 1))
             move_up();

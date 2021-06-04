@@ -7,7 +7,7 @@ extern "C" {
 #endif
 
 void set_button(int);
-void move_right();
+void move_init();
 void move_up();
 
 #ifdef	__cplusplus
