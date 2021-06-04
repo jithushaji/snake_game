@@ -11,10 +11,9 @@ build/default/production/button.o.d build/default/production/button.o: \
  /opt/microchip/xc8/v2.32/avr/avr/include/avr/version.h \
  /opt/microchip/xc8/v2.32/avr/avr/include/avr/fuse.h \
  /opt/microchip/xc8/v2.32/avr/avr/include/avr/lock.h \
- /opt/microchip/xc8/v2.32/avr/avr/include/stdio.h \
- /opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/stdarg.h \
- /opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/stddef.h \
- /opt/microchip/xc8/v2.32/avr/avr/include/stdlib.h oled.h
+ /opt/microchip/xc8/v2.32/avr/avr/include/util/delay.h \
+ /opt/microchip/xc8/v2.32/avr/avr/include/util/delay_basic.h \
+ /opt/microchip/xc8/v2.32/avr/avr/include/math.h oled.h
 
 /opt/microchip/xc8/v2.32/avr/avr/include/avr/interrupt.h:
 
@@ -40,12 +39,10 @@ build/default/production/button.o.d build/default/production/button.o: \
 
 /opt/microchip/xc8/v2.32/avr/avr/include/avr/lock.h:
 
-/opt/microchip/xc8/v2.32/avr/avr/include/stdio.h:
+/opt/microchip/xc8/v2.32/avr/avr/include/util/delay.h:
 
-/opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/stdarg.h:
+/opt/microchip/xc8/v2.32/avr/avr/include/util/delay_basic.h:
 
-/opt/microchip/xc8/v2.32/avr/lib/gcc/avr/5.4.0/include/stddef.h:
-
-/opt/microchip/xc8/v2.32/avr/avr/include/stdlib.h:
+/opt/microchip/xc8/v2.32/avr/avr/include/math.h:
 
 oled.h:
